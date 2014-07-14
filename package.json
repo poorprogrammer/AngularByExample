@@ -1,0 +1,36 @@
+{
+  "name": "angular-by-example",
+  "version": "0.0.0",
+  "description": "For Learning Angular",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/poorprogrammer/AngularByExample.git"
+  },
+  "author": "Phongsak Ritpitakphong",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/poorprogrammer/AngularByExample/issues"
+  },
+  "dependencies": {
+    "karma": "0.12.11",
+    "karma-chrome-launcher": "0.1.4",
+    "karma-firefox-launcher": "0.1.3",
+    "karma-jasmine": "0.1.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-karma": "~0.8.3",
+    "jshint": "~2.5.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "jshint-stylish": "~0.2.0",
+    "karma-ng-html2js-preprocessor": "~0.1.0",
+    "karma-coverage": "~0.2.4"
+  }
+}
