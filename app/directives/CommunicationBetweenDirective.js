@@ -4,42 +4,50 @@ function AnimalController(){
 
   this.info = "";
   this.count = 1;
-  
   this.walk4Legs = function() {
-    this.count += 1;
-    this.info = "Walking by 4 legs";    
-    console.log(this.info + '=' + this.count);
-    
+    this.info = "Walking by 4 legs"
   };
 
 }
 
-app.controller("AnimalController",[AnimalController]);
-// app.directive("animal",function(){
-//   return {
-//     controller: AnimalController,
-//     controllerAs : "animalController"   
-//   };
-// });
+
+app.directive("animal",function(){
+  return {
+    controller: AnimalController,
+    controllerAs : "animalController"   
+  };
+});
 
 app.directive("dog", function () {
   return {
     restrict: "E",
-    controller : 'AnimalController',
-    controllerAs : 'animalController',
-    template : '{{animalController.info}}<input type="button" ng-click="animalController.walk4Legs()" name="buttonDog" value="DogDirective"/>',
-    scope : {}
+    require:'^animal',
+    template : '<input type="button" ng-click="walk()" name="buttonDog" value="DogDirective"/>',
+    scope : {},
+    link : function(scope, element, attrs, animalController){
+      scope.walk = function(){
+        animalController.count += 1;
+        animalController.walk4Legs();
+      }
+    }
   };
-  
 });
 
 app.directive("cat", function() {
   return {
     restrict: "E",
-    controller : 'AnimalController',
-    controllerAs : 'animalController',
-    template : '{{animalController.info}}<input type="button" ng-click="animalController.walk4Legs()" name="buttonCat" value="CatDirective"/>',
-    scope : {}
-    
+    require:'^animal',
+    template : '<input type="button" ng-click="localFunctionForCat()" name="buttonCat" value="CatDirective"/>',
+    scope : {},
+    link : function(scope, element, attrs, animalController){
+      scope.catchMouse = function(){
+        animalController.walk4Legs();
+      };
+
+      scope.localFunctionForCat = function(){
+        animalController.count += 1;
+        animalController.info = "I will do whatever it take to study this directive";
+      }
+    }
   };
 });
