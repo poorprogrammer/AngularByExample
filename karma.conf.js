@@ -20,11 +20,13 @@ module.exports = function(karma) {
 
     // our app
     'app/poc/*.js',
+    'app/services/*.js',
+    'app/weather/*.js',
     'app/*.js',
 
     // tests
     'test/unit/*',
-
+    'test/weather/*',
     // templates
 
     ],

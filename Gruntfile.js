@@ -20,10 +20,11 @@ function karmaConfig() {
         browsers: ['Chrome']
     };
     continuous = {
-        singleRun: true
+        singleRun: true,
+        reporters: ['coverage']
     };
     dev = {
-        reporters: ['dots','coverage']
+        reporters: ['dots']
     };
     config = {
       options: options,
